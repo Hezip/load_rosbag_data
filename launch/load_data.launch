@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+    <node pkg="load_rosbag_data" name="load_data" type="load_data" output="screen"></node>
+    <rosparam file="$(find load_rosbag_data)/config/load_data_config.yaml"/>
+
+</launch>
+

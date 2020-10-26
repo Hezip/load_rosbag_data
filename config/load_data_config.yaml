@@ -1,0 +1,9 @@
+input_bag_path: /home/he/Data/truck/buma/10-24-fail/2020-10-24-02-44-32.bag  #your bag
+
+output_path: /home/he/Data/truck/buma/10-24-fail/ #out put .pcd file
+
+extrinsic_path: /home/he/Code/ROS/lidar_depth_calibration_ws/src/lidar_depth_calibration/data/   #transformation, usually Identity
+
+num_lidar_points: 50  #save frames
+
+message_title: /livox/lidar_all #message topic
