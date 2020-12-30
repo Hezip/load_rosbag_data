@@ -1,8 +1,8 @@
-input_bag_path: /home/he/Data/truck/buma/10-24-fail/2020-10-24-02-44-32.bag  #your bag
+input_bag_path: /home/he/Data/truck/12-30-truck-model/12.bag  #your bag
 
-output_path: /home/he/Data/truck/buma/10-24-fail/ #out put .pcd file
+# output_path: same as input path
 
-extrinsic_path: /home/he/Code/ROS/lidar_depth_calibration_ws/src/lidar_depth_calibration/data/   #transformation, usually Identity
+extrinsic_path: /home/he/Code/Git/MyRepo/load_data_ws/src/load_rosbag_data/data/   #transformation, usually Identity
 
 num_lidar_points: 50  #save frames
 

@@ -43,9 +43,6 @@ void getParameters() {
   if (!ros::param::get("input_bag_path", input_bag_path)) {
     exit(1);
   }
-  if (!ros::param::get("output_path", output_path)) {
-    exit(1);
-  }
   if (!ros::param::get("num_lidar_points", num_lidar_points)) {
     exit(1);
   }
@@ -83,7 +80,7 @@ void loadPointcloudFromROSBag(const std::string& bag_path) {
       if (lidar_m == NULL) continue;
       PointCloud cloud;
       pcl::fromROSMsg(*lidar_m, cloud);
-      // pcl::transformPointCloud(cloud, cloud, extrinsic_lidar);
+      pcl::transformPointCloud(cloud, cloud, extrinsic_lidar);
       lidar_datas.push_back(cloud);
     }
     if (lidar_datas.size() >= num_lidar_points) {
@@ -101,7 +98,9 @@ int main(int argc, char **argv) {
   for (int i=0; i < lidar_datas.size(); i++) {
     *point_all += lidar_datas[i];
   }
-  pcl::io::savePCDFileBinary(output_path + "point_all.pcd", *point_all);
+  output_path = input_bag_path.substr(0, input_bag_path.size()-4); // remove .bag
+  std::cout << output_path << std::endl;
+  pcl::io::savePCDFileBinary(output_path + ".pcd", *point_all);
   ROS_INFO("Save cloud");
   return 0;
 }
